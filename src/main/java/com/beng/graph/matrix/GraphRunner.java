@@ -20,6 +20,9 @@ public class GraphRunner implements Runner {
         System.out.println("深度优先遍历顺序如下：");
         int[] visit = new int[graph.getSize()];
         graph.dfs(0, visit);
+        System.out.println("");
+        System.out.println("宽度优先遍历顺序如下：");
+        graph.bfs(0);
     }
 
     /**

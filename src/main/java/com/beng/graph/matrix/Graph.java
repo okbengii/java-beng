@@ -1,6 +1,6 @@
 package com.beng.graph.matrix;
 
-import java.util.Queue;
+import java.util.Stack;
 
 /**
  * @author apple
@@ -102,17 +102,26 @@ public class Graph {
         }
     }
 
-    /**
-     * 宽度优先遍历
-     * 
-     * @param start
-     */
+    // 宽度优先遍历
     public void bfs(int start) {
-        int[] visit = new int[size];
-        int[] queue = new int[size];
-        Queue q = null;
-        q.add(cityArray[start]);
-
+        int visit[] = new int[size];
+        Stack stack = new Stack<>();
+        stack.push(start);
+        // 根节点入队
+        visit[start] = 1;
+        while (!stack.isEmpty()) {
+            // 根节点出队
+            int index = (int) stack.pop();
+            // 访问出队节点
+            System.out.print(cityArray[index] + "  ");
+            for (int i = 0; i < cityArray.length; i++) {
+                if (matrix[index][i] != 0 && visit[i] == 0 && matrix[index][i] != Integer.MAX_VALUE) {
+                    // 下一个节点入队
+                    stack.push(i);
+                    visit[i] = 1;
+                }
+            }
+        }
     }
 
     public void print() {
