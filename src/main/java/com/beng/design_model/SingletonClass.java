@@ -8,6 +8,7 @@ package com.beng.design_model;
 
 // 懒汉式
 public class SingletonClass {
+
     private static SingletonClass instance = null;
 
     public static SingletonClass getInstance() {
