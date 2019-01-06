@@ -104,7 +104,7 @@ public class Graph {
 
     // 宽度优先遍历
     public void bfs(int start) {
-        int visit[] = new int[size];
+        int[] visit = new int[size];
         Stack stack = new Stack<>();
         stack.push(start);
         // 根节点入队
