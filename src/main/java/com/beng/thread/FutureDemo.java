@@ -13,7 +13,7 @@ import java.util.concurrent.Future;
  * @author apple
  */
 public class FutureDemo {
-    static ExecutorService executorService = Executors.newFixedThreadPool(3);
+   private static ExecutorService executorService = Executors.newFixedThreadPool(3);
 
     public static void main(String[] args) throws InterruptedException, ExecutionException {
         // executorService.execute(new RunnableTask()); // 直接执行
