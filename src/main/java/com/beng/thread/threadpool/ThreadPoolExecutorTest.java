@@ -4,6 +4,10 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @desc 不建议使用 ThreadPoolExecutor，建议使用 Executor 工具类提供的四个方法
+ * @author apple
+ */
 public class ThreadPoolExecutorTest {
     public static void main(String[] args) {
         ThreadPoolExecutor executor = new ThreadPoolExecutor(5, 10, 200, TimeUnit.MILLISECONDS,
