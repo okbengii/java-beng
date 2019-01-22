@@ -1,4 +1,4 @@
-package com.beng.java.seralizable;
+package com.beng.seralizable;
 
 import java.io.Serializable;
 

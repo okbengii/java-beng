@@ -1,4 +1,4 @@
-package com.beng.threadpool;
+package com.beng.thread.threadpool;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -34,7 +34,7 @@ public class ExecutorServiceTest {
         // 3. 定长线程池，支持定时及周期性任务执行
         // newScheduleThreadPoolMe();
         // 4. 单线程化的线程池
-        // newSingleThreadExecutorMe();
+        newSingleThreadExecutorMe();
     }
 
     // newCachedThreadPool 可缓存线程池

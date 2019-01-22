@@ -1,4 +1,4 @@
-package com.beng.current.lock;
+package com.beng.thread.current.lock;
 
 import java.util.ArrayList;
 import java.util.concurrent.locks.Lock;
