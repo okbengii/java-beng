@@ -5,6 +5,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
+ * @desc 可重入锁
  * @author apple
  */
 public class ReentrantLockTest {

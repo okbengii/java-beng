@@ -2,12 +2,14 @@ package com.beng.thread.current.lock;
 
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-/**
- * 读写锁
+/*
+ * @desc 读写锁
+ *      readLock()和writeLock()用来获取读锁和写锁
  * 
  * @author apple
  */
 public class ReadWriteLockTest {
+
     private ReentrantReadWriteLock rwl = new ReentrantReadWriteLock();
 
     public static void main(String[] args) {
