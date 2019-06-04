@@ -12,6 +12,9 @@ import org.apache.commons.io.IOUtils;
 public class Test {
 
     public static void main(String[] args) {
+
+        System.out.println("t?tle".toUpperCase());
+
         Runtime rt = Runtime.getRuntime();
         try {
             // 如果在系统中使用 Runtime 时，注意一定要对传入得命令进行校验
