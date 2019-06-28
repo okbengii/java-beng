@@ -1,7 +1,7 @@
 package com.beng.thread.safe;
 
 /**
- * 使用 notifyAll 不要使用 notify
+ * 使用 notifyAll 不要使用 notify; 使用notify 会发生死锁
  * 
  * @author apple
  */
@@ -24,13 +24,13 @@ public class NotifyTest implements Runnable {
             synchronized (lock) {
                 while (time != step) {
                     System.out.println(Thread.currentThread().getName() + " " + time);
-                    lock.wait();
+                    lock.wait(10000);
                 }
                 System.out.println(Thread.currentThread().getName() + " " + time);
-
                 time++;
-                System.out.println(Thread.currentThread().getName() + " " + time);
                 lock.notify();
+
+                // lock.notifyAll();
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
