@@ -4,12 +4,15 @@ import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Writer;
 import java.util.Arrays;
 
 import com.opencsv.CSVParser;
 import com.opencsv.CSVReader;
+import com.opencsv.CSVWriter;
 
 public class FileReader {
 
@@ -17,12 +20,14 @@ public class FileReader {
     public static final char UNDERLINE = '_';
 
     public static void main(String[] args) {
-        readCsv();
+        readCsv(CSVPATH);
     }
 
-    // 读取数据
-    public static void readCsv() {
-        File file = new File(CSVPATH);
+    /**
+     * 读取数据
+     */
+    public static void readCsv(String path) {
+        File file = new File(path);
         try (FileInputStream fileIn = new FileInputStream(file);
                 DataInputStream dataIn = new DataInputStream(fileIn);
                 InputStreamReader in = new InputStreamReader(dataIn, "UTF-8");) {
@@ -38,6 +43,21 @@ public class FileReader {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * 写入 csv
+     * 
+     * @param path
+     * @param strs
+     * @throws IOException
+     */
+    public static void write(String path, String[] strs) throws IOException {
+        File resultPath = new File(path);
+        Writer writer = new FileWriter(resultPath);
+        CSVWriter csvWriter = new CSVWriter(writer, ',');
+        csvWriter.writeNext(strs);
+        csvWriter.close();
     }
 
     /**
