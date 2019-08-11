@@ -1,7 +1,10 @@
 package com.beng.thread.threadpool;
 
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
@@ -34,7 +37,8 @@ public class ExecutorServiceTest {
         // 3. 定长线程池，支持定时及周期性任务执行
         // newScheduleThreadPoolMe();
         // 4. 单线程化的线程池
-        newSingleThreadExecutorMe();
+        // newSingleThreadExecutorMe();
+        test();
     }
 
     // newCachedThreadPool 可缓存线程池
@@ -94,6 +98,40 @@ public class ExecutorServiceTest {
                 }
             });
         }
+        pool.shutdown();
+    }
+
+    /**
+     * 
+     */
+    public static void test() {
+
+        System.out.println(Runtime.getRuntime().availableProcessors());
+
+        ExecutorService pool = Executors.newSingleThreadExecutor();
+        pool.execute(new Runnable() {
+            @Override
+            public void run() {
+                int i = 10 / 0;
+            }
+        });
+
+        Future<Boolean> future = pool.submit(new Callable<Boolean>() {
+            @Override
+            public Boolean call() {
+                int i = 10 / 0;
+                return true;
+            }
+        });
+
+        try {
+            future.get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
         pool.shutdown();
     }
 
