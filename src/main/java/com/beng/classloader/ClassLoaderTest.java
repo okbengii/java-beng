@@ -8,7 +8,6 @@ public class ClassLoaderTest {
             throws InstantiationException, IllegalAccessException, ClassNotFoundException {
 
         ClassLoader classLoader = new ClassLoader() {
-
             @Override
             public Class<?> loadClass(String name) throws ClassNotFoundException {
                 try {
